@@ -37,11 +37,11 @@ const Card: React.FC = () => {
   };
 
   return (
-    <div className="text-white bg-white w-full max-w-[350px]">
+    <div className="text-white bg-white w-full max-w-[280px]">
       <div className="relative rounded-t-2xl overflow-hidden shadow-lg">
         {/* Background Image Carousel */}
         <div
-          className="h-[350px] bg-cover bg-center relative"
+          className="h-[280px] bg-cover bg-center relative"
           style={{
             backgroundImage: `url(${images[currentImageIndex]})`,
             backgroundColor: "#ccc",
@@ -54,14 +54,14 @@ const Card: React.FC = () => {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="absolute top-1/2 left-6 transform -translate-y-1/2">
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
           <button className="rounded-full text-white" onClick={prevImage}>
-            <img src="/assets/Path2.png" alt="previous-button" />
+            <img src="/assets/Path2.png" alt="previous-button" className="h-4" />
           </button>
         </div>
-        <div className="absolute top-1/2 right-6 transform -translate-y-1/2">
+        <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
           <button className="rounded-full text-white" onClick={nextImage}>
-            <img src="/assets/Path1.png" alt="next-button" />
+            <img src="/assets/Path1.png" alt="next-button" className="h-4" />
           </button>
         </div>
 
@@ -69,23 +69,23 @@ const Card: React.FC = () => {
         <Timer />
 
         {/* Share and Like */}
-        <div className="absolute top-24 right-7 flex items-center space-x-4">
-          <img src="/assets/Path 7830.png" alt="share-icon" className="w-5 h-5"/>
+        <div className="absolute top-20 right-7 flex items-center space-x-4">
+          <img src="/assets/Path 7830.png" alt="share-icon" className="w-3 h-3"/>
           {isLiked ? (
             <IoMdHeart
-              className="cursor-pointer text-red-500 w-5 h-5"
+              className="cursor-pointer text-red-500 w-3 h-3"
               onClick={() => setIsLiked(false)} // Toggle to unliked state
             />
           ) : (
             <FaRegHeart
-              className="cursor-pointer text-white w-5 h-5"
+              className="cursor-pointer text-white w-3 h-3"
               onClick={() => setIsLiked(true)} // Toggle to liked state
             />
           )}
         </div>
 
         {/* Circular Progress Bar and Price */}
-        <div className="absolute bottom-14 flex justify-between w-[100%] px-6">
+        <div className="absolute bottom-10 flex justify-between w-[100%] px-4">
           <SquareProgressBar percentage={23} />
           <div className="flex flex-col">
             <div className="flex justify-between text-white">
@@ -99,7 +99,7 @@ const Card: React.FC = () => {
                 <span
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`cursor-pointer mx-1 h-0.5 w-6 ${index === currentImageIndex ? "bg-gold" : "bg-gray-400"}`}
+                  className={`cursor-pointer mx-1 h-0.5 w-4 ${index === currentImageIndex ? "bg-gold" : "bg-gray-400"}`}
                 ></span>
               ))}
             </div>
@@ -108,7 +108,7 @@ const Card: React.FC = () => {
 
         {/* Address and Details Section */}
         <div className="absolute w-[100%] bottom-2 tracking-wider">
-          <div className="flex justify-between font-lato text-[7px] uppercase  px-6">
+          <div className="flex justify-between font-lato text-[5px] uppercase  px-4">
             <p>Shelton Street</p>
             <p>Covent Garden</p>
             <p>London</p>
@@ -122,12 +122,12 @@ const Card: React.FC = () => {
       </div>
 
       {/* Buy Entry Section */}
-      <div className="h-[44px] md:h-[54px] bg-black tracking-widest rounded-b-2xl mt-2 font-lato text-[12px]">
-        <div className="flex justify-between pt-4 px-6">
+      <div className="h-[40px] bg-black tracking-widest rounded-b-2xl mt-2 font-lato text-[10px]">
+        <div className="flex justify-between pt-3 px-6">
           <p>£25.00 GBP</p>
           <button>BUY ENTRY NOW</button>
         </div>
-        <p className="text-end text-[5px] px-5">#ZM7861234567</p>
+        <p className="text-end text-[4px] px-5">#ZM7861234567</p>
       </div>
     </div>
   );

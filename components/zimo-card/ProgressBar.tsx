@@ -6,8 +6,8 @@ interface SquareProgressBarProps {
 }
 
 const SquareProgressBar: React.FC<SquareProgressBarProps> = ({ percentage }) => {
-  const size = 42; // Size of the square
-  const stroke = 5; // Stroke width
+  const size = 32; // Size of the square
+  const stroke = 3; // Stroke width
   const innerSize = size - stroke; // Inner size considering the stroke
   const progress = (percentage / 100) * 11 * innerSize; // Total length of the progress bar based on the percentage
 
@@ -27,8 +27,8 @@ const SquareProgressBar: React.FC<SquareProgressBarProps> = ({ percentage }) => 
           fill="none"
           stroke="#e5e7eb" // Gray background
           strokeWidth={stroke}
-          rx="10" // Rounded corners
-          ry="10"
+          rx="6" // Rounded corners
+          ry="6"
         />
 
         {/* Foreground progress rectangle */}
@@ -42,8 +42,8 @@ const SquareProgressBar: React.FC<SquareProgressBarProps> = ({ percentage }) => 
           strokeWidth={stroke}
           strokeDasharray={`${progress} ${4 * innerSize}`} // Total perimeter
           strokeDashoffset={4 * innerSize - progress} // Offset for progress
-          rx="10" // Rounded corners
-          ry="10"
+          rx="6" // Rounded corners
+          ry="6"
           style={{ transition: "stroke-dashoffset 0.5s ease" }}
         />
       </svg>
