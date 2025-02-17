@@ -8,9 +8,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        lato: ["Lato", "sans-serif"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        gold: "#BE9F56", // Custom color name (e.g., gold)
       },
     },
   },

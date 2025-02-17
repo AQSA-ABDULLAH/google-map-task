@@ -50,23 +50,23 @@ function Timer() {
 
   return (
     <div className="absolute w-[100%] top-3 px-6">
-      <div className="flex justify-between items-center text-[40px] md:text-[50px] tracking-widest"
+      <div className="flex justify-between items-center text-[40px] tracking-widest"
       style={{ fontWeight: 100 }}>
         <div className="flex flex-col items-center">
           <p>{timeLeft.days}</p>
-          <p className="text-[7px] md:text-[9px] uppercase tracking-widest">Days</p>
+          <p className="text-[7px] uppercase tracking-widest">Days</p>
         </div>
         <div className="flex flex-col items-center">
           <span>{timeLeft.hours}</span>
-          <p className="text-[7px] md:text-[9px] uppercase tracking-widest">Hours</p>
+          <p className="text-[7px] uppercase tracking-widest">Hours</p>
         </div>
         <div className="flex flex-col items-center">
           <span>{timeLeft.minutes}</span>
-          <p className="text-[7px] md:text-[10px] font-normal uppercase tracking-widest">Minutes</p>
+          <p className="text-[7px] font-normal uppercase tracking-widest">Minutes</p>
         </div>
         <div className="flex flex-col items-center">
           <span>{timeLeft.seconds}</span>
-          <p className="text-[7px] md:text-[10px] font-normal uppercase tracking-widest">Seconds</p>
+          <p className="text-[7px] font-normal uppercase tracking-widest">Seconds</p>
         </div>
       </div>
     </div>
