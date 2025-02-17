@@ -40,7 +40,7 @@ const MapPointerClient = () => {
               position={selectedLocation}
               onCloseClick={() => setSelectedLocation(null)}
             >
-              <div className="p-2 bg-white rounded-lg shadow-md w-[350px] md:w-[450px]">
+              <div className="p-2 bg-white rounded-lg shadow-md w-[280px]">
                 <Card />
               </div>
             </InfoWindow>
