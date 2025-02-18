@@ -6,10 +6,12 @@ import SquareProgressBar from "./ProgressBar";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMdHeart } from "react-icons/io";
 
-// Dynamically import Timer with no SSR
 const Timer = dynamic(() => import("./Timer"), { ssr: false });
 
-// Define the type for the images array
+interface CardProps {
+  markerId: string; // Accept marker ID as prop
+}
+
 const images: string[] = [
   "/assets/Rectangle.png",
   "/assets/Rectangle193.png",
@@ -20,18 +22,14 @@ const images: string[] = [
   "/assets/Rectangle.png",
 ];
 
-const Card: React.FC = () => {
-  // State for the current image index
+const Card: React.FC<CardProps> = ({ markerId }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-  // State for whether the card is liked
   const [isLiked, setIsLiked] = useState<boolean>(false);
 
-  // Function to go to the next image
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  // Function to go to the previous image
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
@@ -39,7 +37,6 @@ const Card: React.FC = () => {
   return (
     <div className="text-white bg-white w-full max-w-[280px]">
       <div className="relative rounded-t-2xl overflow-hidden shadow-lg">
-        {/* Background Image Carousel */}
         <div
           className="h-[280px] bg-cover bg-center relative"
           style={{
@@ -49,11 +46,9 @@ const Card: React.FC = () => {
               "inset 0px 90px 80px -38px rgba(0, 0, 0, 0.8), inset 0px -90px 60px -35px rgba(0, 0, 0, 0.9)",
           }}
         >
-          {/* Overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         </div>
 
-        {/* Navigation Buttons */}
         <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
           <button className="rounded-full text-white" onClick={prevImage}>
             <img src="/assets/Path2.png" alt="previous-button" className="h-4" />
@@ -65,21 +60,19 @@ const Card: React.FC = () => {
           </button>
         </div>
 
-        {/* Countdown Timer */}
         <Timer />
 
-        {/* Share and Like */}
         <div className="absolute top-20 right-7 flex items-center space-x-4">
           <img src="/assets/Path 7830.png" alt="share-icon" className="w-3 h-3"/>
           {isLiked ? (
             <IoMdHeart
               className="cursor-pointer text-red-500 w-3 h-3"
-              onClick={() => setIsLiked(false)} // Toggle to unliked state
+              onClick={() => setIsLiked(false)}
             />
           ) : (
             <FaRegHeart
               className="cursor-pointer text-white w-3 h-3"
-              onClick={() => setIsLiked(true)} // Toggle to liked state
+              onClick={() => setIsLiked(true)}
             />
           )}
         </div>
@@ -115,13 +108,19 @@ const Card: React.FC = () => {
             <p>WC2H</p>
             <p>United Kingdom</p>
           </div>
-          <p className="text-end text-[5px] mt-1 px-5 tracking-widest">
-            #ZM7861234567
+          <p className="text-end text-[9px] font-bold mt-1 px-5 tracking-widest">
+          Marker ID: {markerId}
           </p>
         </div>
       </div>
 
-      {/* Buy Entry Section */}
+        {/* <div className="absolute w-[100%] bottom-2 tracking-wider">
+          <p className="text-end text-[5px] mt-1 px-5 tracking-widest">
+            Marker ID: {markerId}
+          </p>
+        </div>
+      </div> */}
+
       <div className="h-[40px] bg-black tracking-widest rounded-b-2xl mt-2 font-lato text-[10px]">
         <div className="flex justify-between pt-3 px-6">
           <p>£25.00 GBP</p>
@@ -134,4 +133,5 @@ const Card: React.FC = () => {
 };
 
 export default Card;
+
 

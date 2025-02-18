@@ -9,7 +9,6 @@ import {
   DirectionsService,
   DirectionsRenderer,
 } from "@react-google-maps/api";
-import Card from "./zimo-card/Card"; // Import the Card component
 
 const Directions = () => {
   const locations: google.maps.LatLngLiteral[] = [
@@ -69,15 +68,6 @@ const Directions = () => {
             {locations.map((location, index) => (
               <Marker key={index} position={location} onClick={() => setSelectedLocation(location)} />
             ))}
-
-            {/* Show Card when a marker is clicked */}
-            {selectedLocation && (
-              <InfoWindow position={selectedLocation} onCloseClick={() => setSelectedLocation(null)}>
-                <div className="p-2 bg-white rounded-lg shadow-md w-[280px]">
-                  <Card />
-                </div>
-              </InfoWindow>
-            )}
 
             {/* Show Directions on the Map */}
             {directions && <DirectionsRenderer directions={directions} />}
